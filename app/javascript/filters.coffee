@@ -20,6 +20,5 @@ window.Filters =
                                                                         selected = _.contains(router.state.executions_filter.tags,tag)
                                                                         m 'li.filter-child',
                                                                                 m 'a', class: (selected and "filter-selected" or ""), href: '?'+(selected and '-' or '')+'executions_filter.tags~='+tag, 'data-parent-tag': tag.split(':')[0], 'data-child-tag': tag.split(':')[1], (selected and '☒' or '☐') + ' ' + tag.substring(tag.indexOf(':')+1)
-
                         m Spinner if (not execution_filters?) or (not execution_filters.valid)
 

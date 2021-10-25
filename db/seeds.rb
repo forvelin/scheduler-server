@@ -43,6 +43,7 @@ def create_workers(num)
             data = {
                 "id"=> c,
                 "name"=> Faker::Name.first_name,
+                #name"=> "some really long test name thing strings",
                 "type"=> Faker::Computer.os,
                 "identifier"=> Faker::Name.last_name,
                 "location"=> Faker::Address.city,
@@ -52,6 +53,7 @@ def create_workers(num)
                 "icon": Faker::Avatar.image(slug: Faker::Address.city)
             }
             resource=Resource.create!(name: Faker::Name.first_name, worker_id: worker.id)
+            #resource=Resource.create!(name: "another really long list of chars to see what happens", worker_id: worker.id)
             ResourceStatus.create!("task_id": task_id, "description": data, "resource_id": resource.id, current: true)
             data
         }
@@ -86,6 +88,7 @@ def create_executions(exec_count, task_count)
             updated_at: Time.now
         )
         tags = {"name" => [Faker::Name.last_name], "title": [Faker::Job.title], "field":[Faker::Job.field]}
+        #tags = {"name" => ["test name that is more than 20 chars long"], "title": ["some really long naaaaaaaaaaaaaame"], "field":["another longer than 20char string"]}
         (tags or {}).each_pair { |property_name, tag_names|
             [tag_names].flatten.uniq.each { |value_name|
                 property = properties[property_name]
@@ -100,6 +103,7 @@ def create_executions(exec_count, task_count)
             requirement_id: 1,
             retry: nil,
             description: {"tags": {"name": Faker::Name.last_name,"event_type": "manual"},"test_name": "Example","executor": "none", "dockerfile": "none"},
+            #description: {"tags": {"name": "some really long naaaamamendinasid","event_type": "manual"},"test_name": "Example","executor": "none", "dockerfile": "none"},
             created_at: Time.now,
             updated_at: Time.now
         )
@@ -111,6 +115,14 @@ def create_executions(exec_count, task_count)
             created_at: Time.now,
             updated_at: Time.now
         )
+        tags = {"name" => [Faker::Name.last_name,Faker::Creature::Bird.implausible_common_name], "title": [Faker::Job.title], "field":[Faker::Job.field]}
+        (tags or {}).each_pair { |property_name, tag_names|
+            [tag_names].flatten.uniq.each { |value_name|
+                property = properties[property_name]
+                value = values[[property.id, value_name]]
+                task_value = TaskValue.create!(task_id: task.id, value_id: value.id, property_id: property.id)
+            }
+        }
 
     }
     }

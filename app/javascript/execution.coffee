@@ -221,6 +221,13 @@ window.Execution =
                                                                                 m '.col-lg-12#execution-status-bar-wrapper', style: { 'padding-top': '5px', 'margin-bottom': '30px', width: '100%', position: 'relative', overflow: "hidden"},
                                                                                         m ExecutionStatusBar, task_statuses: execution.object.task_statuses, max_progressbar_width: $('#main-container').innerWidth()-120
                                                                                         m Spinner if execution_task_details?
+                                                m '.execution-buttons-grid',                            
+                                                        m 'strong.inner',"Toggle Names ("
+                                                                        if router.state.tag_shorten
+                                                                                m 'a', href: "?-tag_shorten=1", "Short names"
+                                                                        else
+                                                                                m 'a', href: "?tag_shorten=1", "Long names"
+                                                                        m 'strong.inner',"):"                                      
                                                 m '.execution-artifacts-grid', style: { 'padding-top': '15px'},
                                                         m '.tags.pull-left.col-xs-6',
                                                                 m '.tag-group.pull-left',
@@ -314,10 +321,11 @@ window.Execution =
                                                                                                                                                         [
                                                                                                                                                                 m '.key.task-tag-key-'+key,key
                                                                                                                                                                 for value in values
+                                                                                                                                                                        value = if router.state.tag_shorten then short_value(value) else value
                                                                                                                                                                         if value.match(/http/)
-                                                                                                                                                                                m 'a.value.task-tag-value-'+base64encode(value),{"title": value, href: value}, short_value(value)
+                                                                                                                                                                                m 'a.value.task-tag-value-'+base64encode(value),{"title": value, href: value}, value
                                                                                                                                                                         else
-                                                                                                                                                                                m '.value.task-tag-value-'+base64encode(value),{"title": value},short_value(value)
+                                                                                                                                                                                m '.value.task-tag-value-'+base64encode(value),{"title": value}, value
                                                                                                                                                         ]
                                                                                                         if router.state.task_unfolded == task.id.toString()
                                                                                                                 m 'tr', key: task.id+'_description',

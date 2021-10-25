@@ -43,6 +43,7 @@ window.Layout =
 										m Executions
 									m '.filters-grid',
 										m Filters
+
 							]
 						if router.state.show == 'execution'
 							[

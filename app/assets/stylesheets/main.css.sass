@@ -522,10 +522,10 @@ a
 .execution-header-grid-container
   display: grid
   grid-template-columns: fit-content(100%)
-  grid-template-rows: 0.5fr 1fr 1.5fr 1fr 1fr
+  grid-template-rows: 0.5fr 1fr 1.5fr 1fr 1fr 1fr
   gap: 10px 5px
   grid-auto-flow: row
-  grid-template-areas: "execution-id-grid execution-status-grid execution-runtime-grid" "execution-tags-grid execution-tags-grid execution-tags-grid" "execution-hooks-grid execution-hooks-grid execution-artifacts-grid" "execution-timeline-grid execution-timeline-grid execution-timeline-grid" "execution-timeline-grid execution-timeline-grid execution-timeline-grid"
+  grid-template-areas: "execution-id-grid execution-status-grid execution-runtime-grid" "execution-tags-grid execution-tags-grid execution-button-grid" "execution-hooks-grid execution-hooks-grid execution-artifacts-grid" "execution-timeline-grid execution-timeline-grid execution-timeline-grid" "execution-timeline-grid execution-timeline-grid execution-timeline-grid"
   grid-area: execution-header-grid-container
 
 .execution-id-grid
@@ -539,6 +539,9 @@ a
 
 .execution-tags-grid
   grid-area: execution-tags-grid
+
+.execution-buttons-grid
+  gird-area: execution-button-grid
 
 .execution-hooks-grid
   grid-area: execution-hooks-grid

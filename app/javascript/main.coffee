@@ -70,7 +70,7 @@ $(document).ready () =>
                 window.workers = window.subscribe(window.workers, if state.show == "workers" then 'workers' else null)
                 window.task = window.subscribe(window.task, if state.task_unfolded? then 'task-'+state.task_unfolded else null)
 
-                if !_.isEqual(previous_state.hidden_tags,state.hidden_tags) or state.show != previous_state.show or state.execution_id != previous_state.execution_id or state.task_unfolded != previous_state.task_unfolded or (not _.isEqual(state.executions_filter, previous_state.executions_filter)) or !_.isEqual(previous_state.task_list_filter,state.task_list_filter) or (not _.isEqual(state.task_filter_unfolded, previous_state.task_filter_unfolded)) or (state.show_task_details != previous_state.show_task_details)
+                if !_.isEqual(previous_state.hidden_tags,state.hidden_tags) or state.show != previous_state.show or state.execution_id != previous_state.execution_id or state.task_unfolded != previous_state.task_unfolded or (not _.isEqual(state.executions_filter, previous_state.executions_filter)) or !_.isEqual(previous_state.task_list_filter,state.task_list_filter) or (not _.isEqual(state.task_filter_unfolded, previous_state.task_filter_unfolded)) or (state.show_task_details != previous_state.show_task_details) or (state.tag_shorten != previous_state.tag_shorten)
                         m.redraw()
 
                 document.title = "Schedy - " + state["show"]
