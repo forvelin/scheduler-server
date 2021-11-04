@@ -16,7 +16,8 @@ window.Workers =
                                                                         m 'td.worker-column.workers-table',
                                                                                 m '.worker-grid-container.worker-box',
                                                                                         m ".worker-name-grid",
-                                                                                                m '.worker-name', {"title": worker.ip}, worker.name
+                                                                                                m 'a.worker-name[href=?show=worker&worker_id='+worker.id+']', {"title": worker.ip}, worker.name
+                                                                                                #m 'a.worker-id[href=?show=workercontrol&worker_id='+worker.name+']', {"title":"Worker Control"}#, worker.type  #m 'a.resource-id', {"title": resource.identifier}, resource.id
                                                                                         m ".worker-last-update-grid",
                                                                                                 m '.worker-state', 'Last Update: '+worker.last_status_update
                                                                                         m ".worker-action-grid",
@@ -39,8 +40,5 @@ window.Workers =
                                                                                                                         m 'a.resource-state ', {"title":"Estimated Release: "+resource.estimated_release_time, style:{'background-color': resource_bg_color}}, resource_state #XXX:change back to resource.state
                                                                                                                         m 'a.resource-task_id', {"title":"Execution View", "href": task_link}, resource.task_id
                                                                                                                 m '.resource-right',
-                                                                                                                        m 'img.resource-icon', {"title": resource_options, "src": resource.icon}
-
-                                                        ]
-
-
+                                                                                                                        m 'img.resource-icon', {"title": resource_options, "src": resource.icon}                                                                                                                          
+                                                        ]          

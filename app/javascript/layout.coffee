@@ -43,7 +43,6 @@ window.Layout =
 										m Executions
 									m '.filters-grid',
 										m Filters
-
 							]
 						if router.state.show == 'execution'
 							[
@@ -60,6 +59,11 @@ window.Layout =
 								m '.col-md-12',
 									m ResourceControl
 							]
+						if router.state.show == 'worker'
+							[
+								m '.col-md-12',
+									m WorkerControl
+							]	
 			else
 				m '.container-fluid',
 					m Spinner

@@ -258,6 +258,7 @@ table
   position: relative
   border: 1px solid black
   border-radius: 3px
+  max-width: 200px
   background-color: #EEEEEE
   padding: 0.1em
   margin: 0.4em
@@ -294,6 +295,13 @@ table.workers-table
   grid-template-columns: repeat(auto-fill, 180px)
   grid-auto-flow: row
   grid-gap: 5px 5px
+
+.resource-row-wrapper
+  display: grid
+  grid-template-colums: 180px
+  grid-auto-flow: column
+  grid-gap: 5px 5px
+
 
 td.workers-table
   padding-top: 10px
@@ -454,23 +462,59 @@ a
 
 .resource-control-container
   display: grid
-  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr)
-  grid-template-rows: 0.2fr 1.6fr 0.4fr
+  grid-template-columns: minmax(200px, 1.0fr) minmax(200px, 1fr)
+  grid-template-rows: minmax(50px, 0.2fr) 1.6fr 0.4fr
   gap: 0.5em 0.5em
-  grid-template-areas: "header actions" "description logs" "mounts logs"
+  grid-template-areas: "header actions" "description picture" "status logs"
   grid-row-gap: 1px
+
+.worker-control-container
+  display: grid
+  grid-template-columns: minmax(200px, 1.0fr) minmax(200px, 1fr)
+  grid-template-rows: minmax(50px, 0.15fr) 1.6fr 0.4fr
+  gap: 0.5em 0.5em
+  grid-template-areas: "header actions" "description picture" "status logs"
+  grid-row-gap: 1px  
 
 .logs-grid
   grid-area: logs
 
+.resources-grid
+  grid-area: resources
+
 .description-grid
-  grid-area: description
+  display: grid
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr)
+  gap: 0.5em 0.5em
+  grid-template-areas: "descriptionjson resourcebox"
+  grid-area: description  
+
+.description-worker-grid
+  grid-area: description  
+
+.descriptionjson-grid
+  grid-area: descriptionjson
 
 .mounts-grid
-  grid-area: mounts
+  grid-area: mounts  
+
+.status-grid
+  grid-area: status  
+
+.resourcebox-grid
+  grid-area: resourcebox 
+  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) 
+
+.picture-grid
+  grid-area: picture  
+  text-align: center
+  margin: 20px
 
 .resource-control-header
   grid-area: header
+
+.worker-control-header
+  grid-area: header  
 
 .actions-grid-container
   display: grid
@@ -598,9 +642,23 @@ code
   overflow: auto
   color: #515151
   padding: 20px
-  margin-top: 20px
   border-radius: 3px
   border: 1px solid #e5e5e5
   white-space: pre
   text-align: left
+
+code2
+  background-color: #eee
+  padding: 3px 5px
+  display: inline-block
+  font-size: 12px
+  display: block
+  overflow: auto
+  color: #515151
+  padding: 20px
+  border-radius: 3px
+  border: 1px solid #e5e5e5
+  white-space: pre
+  text-align: left
+  margin: 20px
 
