@@ -88,7 +88,6 @@ def create_executions(exec_count, task_count)
             updated_at: Time.now
         )
         tags = {"name" => [Faker::Name.last_name], "title": [Faker::Job.title], "field":[Faker::Job.field]}
-        #tags = {"name" => ["test name that is more than 20 chars long"], "title": ["some really long naaaaaaaaaaaaaame"], "field":["another longer than 20char string"]}
         (tags or {}).each_pair { |property_name, tag_names|
             [tag_names].flatten.uniq.each { |value_name|
                 property = properties[property_name]
@@ -98,6 +97,7 @@ def create_executions(exec_count, task_count)
         }
 
     Random.rand(task_count[0]..task_count[1]).times { |tc|
+
         task = Task.create!(
             execution_id: execution.id,
             requirement_id: 1,
@@ -121,6 +121,16 @@ def create_executions(exec_count, task_count)
                 property = properties[property_name]
                 value = values[[property.id, value_name]]
                 task_value = TaskValue.create!(task_id: task.id, value_id: value.id, property_id: property.id)
+            }
+        }
+
+        tags = {"name" => [Faker::Name.last_name], "title": [Faker::Job.title], "field":[Faker::Job.field]}
+
+        (tags or {}).each_pair { |property_name, tag_names|
+            [tag_names].flatten.uniq.each { |value_name|
+                property = properties[property_name]
+                value = values[[property.id, value_name]]
+                execution_value = TaskValue.create!(task_id: task.id, value_id: value.id, property_id: property.id)
             }
         }
 
