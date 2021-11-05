@@ -23,7 +23,7 @@ $(document).ready () =>
 
         $(window).on("resize",()->m.redraw())
 
-        window.seapig_client = new SeapigClient('ws://'+window.location.host+'/seapig', name: 'web', debug: false)
+        window.seapig_client = new SeapigClient('ws://localhost/seapig', name: 'web', debug: false)
 
         window.router = new SeapigRouter(window.seapig_client, debug: false)
         window.router.onsessionopen = -> (router.onchange(router.state, router.state) if router.state_valid)

@@ -25,7 +25,6 @@ window.Workers =
                                                                                 m '.worker-grid-container.worker-box.'+worker_status,
                                                                                         m ".worker-name-grid",
                                                                                                 m 'a.worker-name[href=?show=worker&worker_id='+worker.id+']', {"title": worker.ip}, worker.name
-                                                                                                #m 'a.worker-id[href=?show=workercontrol&worker_id='+worker.name+']', {"title":"Worker Control"}#, worker.type  #m 'a.resource-id', {"title": resource.identifier}, resource.id
                                                                                         m ".worker-last-update-grid",
                                                                                                 m '.worker-state', 'Last Update: '+worker.last_status_update
                                                                                         m ".worker-action-grid",

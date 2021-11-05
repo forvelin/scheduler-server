@@ -28,7 +28,7 @@ window.WorkerControl =
                                 m 'div.worker-control-content'
                                 m '.picture-gird.worker-control-content','text-align':'center',
                                         m 'div',
-                                                m 'img.resource-image', {"title": worker.name, "src": "/pictures/" + worker.name + ".jpg", "class":'figure-img img-fluid', 'max-height': '100%', 'text-align': 'center'}                                                 
+                                                m 'img.resource-image', {"title": worker.name, "src": "/pictures/" + worker.name + ".jpg", "class":'figure-img img-fluid', 'max-height': '100%', 'text-align': 'center'}
                         ]
                 else
                         m Spinner

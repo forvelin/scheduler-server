@@ -169,7 +169,13 @@ window.Execution =
                                                                 m 'span',' ('
                                                                 m 'span#execution-duration'
                                                                 m 'span',')'
-
+                                                m '.execution-actions-grid',
+                                                        m 'strong.inner',"Toggle Names ("
+                                                                if router.state.tag_shorten
+                                                                        m 'a', href: "?-tag_shorten=1", "Short Names"
+                                                                else
+                                                                        m 'a', href: "?tag_shorten=1", "Long Names"
+                                                        m 'strong.inner',"):"
                                                 m '.execution-tags-grid',
                                                         if execution.object.tags?
                                                                 m '.tags.pull-left.col-xs-12',

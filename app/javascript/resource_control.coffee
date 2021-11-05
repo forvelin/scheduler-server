@@ -3,10 +3,12 @@ window.ResourceControl =
             m '.resource-control-container',
                 if resource? and resource.initialized
                         status = resource.object.description.task_id
+
                         if status == null 
                                 statStr = "Available"
                         else if status == 0
                                 statStr = "Locked"        
+
                         else
                                 statStr = "Running"
                         [       m '.resource-control-header.resource-control-content',
